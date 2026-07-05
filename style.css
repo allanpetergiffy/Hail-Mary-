@@ -1,0 +1,202 @@
+/* Color Palette & Variables for Parchment View Only */
+:root {
+    --bg-body: #f4ebd0;
+    --bg-container: #fcf8ec;
+    --text-main: #2b1f11;
+    --text-accent: #8c6621;
+    --text-vermilion: #a62424; /* Medieval Crimson matching your text headers */
+    --border-color: #af9361;
+    --note-bg: rgba(175, 147, 97, 0.15);
+    --note-text: #59462e;
+}
+
+/* Base Setup */
+body {
+    background-color: var(--bg-body);
+    background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+    color: var(--text-main);
+    /* Almendra: Elegant, highly legible humanistic serif mimicking historic scripts */
+    font-family: 'Almendra', Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin: 0;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Manuscript Frame */
+.manuscript-container {
+    max-width: 900px;
+    background-color: var(--bg-container);
+    background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+    border: 4px double var(--border-color);
+    padding: 60px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+/* Corner Illuminations */
+.manuscript-container::before, .manuscript-container::after {
+    content: '✿';
+    font-family: 'Cinzel Decorative', serif;
+    position: absolute;
+    color: var(--text-accent);
+    font-size: 24px;
+    opacity: 0.7;
+}
+.manuscript-container::before { top: 15px; left: 15px; }
+.manuscript-container::after { bottom: 15px; right: 15px; }
+
+/* Typography - Clear Roman/Gothic Infused Headings */
+h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 3rem;
+    color: var(--text-vermilion);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.author {
+    font-family: 'Cinzel Decorative', serif;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-accent);
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    color: var(--text-accent);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    clear: both;
+}
+
+h2::before {
+    content: '❧';
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--text-vermilion);
+    font-size: 1.8rem;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+/* Bible Verse Style: Highlighted in rich Crimson Red for uniform illumination */
+.bible-verse {
+    color: var(--text-vermilion);
+    font-weight: 700;
+    background: rgba(166, 36, 36, 0.05);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Dropcap configuration using elegant traditional capitals */
+.dropcap::first-letter {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 4.2rem;
+    float: left;
+    margin-right: 12px;
+    line-height: 0.85;
+    color: var(--text-vermilion);
+    border: 2px solid var(--text-accent);
+    padding: 6px 12px;
+    background: rgba(140, 102, 33, 0.05);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.08);
+}
+
+.editorial-note {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--note-text);
+    background: var(--note-bg);
+    padding: 20px;
+    border-left: 4px solid var(--border-color);
+    margin: 30px 0;
+    clear: both;
+}
+
+.divider {
+    text-align: center;
+    margin: 50px 0;
+    color: var(--border-color);
+    font-size: 1.6rem;
+    letter-spacing: 10px;
+    clear: both;
+}
+
+/* Images Layout */
+.manuscript-img {
+    display: block;
+    border: 3px solid var(--border-color);
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.15);
+    background-color: #fcf8ec;
+    padding: 6px;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.img-left {
+    float: left;
+    margin: 10px 25px 20px 0;
+    max-width: 40%;
+}
+
+.img-right {
+    float: right;
+    margin: 10px 0 20px 25px;
+    max-width: 40%;
+}
+
+.img-full {
+    max-width: 85%;
+    margin: 35px auto;
+}
+
+.intro-gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.intro-gallery img {
+    max-width: 45%;
+    border: 3px solid var(--border-color);
+    padding: 4px;
+}
+
+/* Responsive Structural Modifications */
+@media (max-width: 768px) {
+    .manuscript-container { padding: 30px 20px; }
+    h1 { font-size: 2.1rem; }
+    h2 { font-size: 1.6rem; }
+    .img-left, .img-right {
+        float: none;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+    .intro-gallery img {
+        max-width: 100%;
+    }
+}
